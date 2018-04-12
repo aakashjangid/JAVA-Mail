@@ -1,0 +1,12 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		MailService service = new MailService();
+		boolean check = service.sendEmail("Recipient's Email", "Subject");
+		System.out.println(check);
+		
+	}
+
+}
