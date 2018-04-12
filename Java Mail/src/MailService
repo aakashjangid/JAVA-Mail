@@ -10,8 +10,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * This class will be responsible to send email to the customers on their
- * successful registration.
+ * This class will be responsible to send email
  * 
  * @version - 1.1
  * @since 06 April, 2018
@@ -20,47 +19,17 @@ import javax.mail.internet.MimeMessage;
  */
 public class MailService {
 
-	/**
-	 * This is the sender's Email Address through which the email will be send. This
-	 * email address is also used to authenticate the Session which will be used in
-	 * MIME Message.
-	 */
-	private String senderAddress = "yashcms2018@gmail.com";
-
-	/**
-	 * This is the sender's Password through which the email will be send. This
-	 * password is also used to authenticate the Session which will be used in MIME
-	 * Message.
-	 */
-	private final String password = "admin@yashcms";
+	private String senderAddress = "gmail@gmail.com";
+	private final String password = "password";
 
 	public String getSenderAddress() {
 		return senderAddress;
 	}
-
 	public String getPassword() {
 		return password;
 	}
 
-	/**
-	 * This method will send an email to the recipient email address passed as an
-	 * argument. It will inform the registered user about the successful
-	 * registration with the application. It will also provide login email and
-	 * domain name in the body of the email. It will also provide a link of the
-	 * login page for the registered user.
-	 * 
-	 * @author aakash.jangid
-	 * @param recipientAddress
-	 *            - the address on which the email has to send.
-	 * @param domain
-	 *            - the domain name for which the user has registered.
-	 * @param loginURL
-	 *            - the URL through which the user will be able to redirect to login page.
-	 * @param subject
-	 * 			  - the Subject of the Email which will give a brief idea about the email.
-	 * @return true if email is sent successfully or false if email is not send
-	 */
-	public boolean sendEmail(String recipientAddress, String domain, String loginURL, String subject) {
+	public boolean sendEmail(String recipientAddress, String subject) {
 
 		Session session = getMailSession();
 		try {
@@ -77,16 +46,7 @@ public class MailService {
 			message.setSubject(subject);
 
 			// Set content of the email
-			message.setContent("<h1 style='color:green'>Thank You for Registering at Yash CMS System</h1>"
-					+ "<img src=\"https://thinkbigcreations.co.in/uploads/images/image_default_275aa29a573f8c3.jpg\">"
-					+ "<br/>"
-					+ "<p><strong>Yash Content Management System (YCMS)</strong> is a computer application that supports the creation and modification of <strong>digital content</strong>. It typically supports multiple users in a collaborative environment. CMS designed to support the management of the content of Web pages</p>"
-					+ "<p>A Content Management Application (CMA) is the front-end user interface that allows a user, even with limited expertise, to add, modify, and remove content from a website without the intervention of a webmaster.</p>"
-					+ "<br/>"
-					+ "<p>You have registered using following credentials - </p>" + "<br/>"
-					+ "<h4 style='color:blue'>Username : " + recipientAddress + "</h4>"
-					+ "<h4 style='color:blue'>Domain : " + domain + "</h4>" + "<a href=" + loginURL
-					+ ">Click Here for Login</a>", "text/html");
+			message.setContent("Hi, This is a Test Email", "text/html");
 
 			// Send message
 			Transport.send(message);
