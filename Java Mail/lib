@@ -1,0 +1,11 @@
+------Jar-----
+java-mail-1.4.4.jar
+
+
+------Maven------
+<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.4</version>
+		</dependency>
