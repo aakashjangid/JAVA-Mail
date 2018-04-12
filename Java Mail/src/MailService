@@ -57,17 +57,6 @@ public class MailService {
 		}
 	}
 
-	/**
-	 * This method will be used to get the Session object. It will take the
-	 * properties of the email server and it will authenticate the email account
-	 * with the help of email address and password. Properties are -
-	 * Host,Port,Authentication,STARTTLS
-	 * 
-	 * @return javax.mail.Session - It will return the Session Object if the
-	 *         properties and email and password are correct. - It will return null
-	 *         if the properties and email and password are incorrect.
-	 * @author aakash.jangid
-	 */
 	public Session getMailSession() {
 
 		Properties props = new Properties();
@@ -82,5 +71,4 @@ public class MailService {
 			}
 		});
 	}
-
 }
